@@ -1,0 +1,48 @@
+---
+interface Props {
+  variant?: 'inline' | 'compact';
+  label?: string;
+}
+
+const { variant = 'inline', label = 'Subscribe to HumanOS' } = Astro.props;
+
+const BEEHIIV_PUBLICATION_ID = '{{BEEHIIV_PUBLICATION_ID}}';
+const embedSrc = `https://embeds.beehiiv.com/${BEEHIIV_PUBLICATION_ID}`;
+---
+
+<section class={`beehiiv beehiiv--${variant}`} aria-label={label}>
+  <p class="beehiiv__intro mono muted">{label}</p>
+  <iframe
+    src={embedSrc}
+    data-test-id="beehiiv-embed"
+    width="100%"
+    height={variant === 'compact' ? 90 : 160}
+    loading="lazy"
+    style="border: 0; border-radius: 4px; background: var(--color-bg-elevated); overflow: hidden;"
+    title={label}></iframe>
+  <p class="beehiiv__fallback mono muted">
+    <a href="https://humanos.beehiiv.com" rel="noopener" target="_blank">
+      Or subscribe at humanos.beehiiv.com →
+    </a>
+  </p>
+</section>
+
+<style>
+  .beehiiv {
+    margin: var(--space-8) 0;
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg-elevated);
+  }
+
+  .beehiiv__intro {
+    margin: 0 0 var(--space-4);
+    font-size: var(--fs-sm);
+  }
+
+  .beehiiv__fallback {
+    margin: var(--space-3) 0 0;
+    font-size: var(--fs-xs);
+  }
+</style>

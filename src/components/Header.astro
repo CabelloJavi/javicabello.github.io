@@ -1,0 +1,99 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/humanos', label: 'HumanOS' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <a href="/" class="wordmark" aria-label="Javi Cabello — Home">
+    <span class="brand">HumanOS</span>
+    <span class="byline">by Javi Cabello</span>
+  </a>
+  <nav aria-label="Primary">
+    <ul>
+      {
+        links.map((link) => {
+          const target = link.href.replace(/\/$/, '') || '/';
+          const isActive = target === path;
+          return (
+            <li>
+              <a href={link.href} aria-current={isActive ? 'page' : undefined}>
+                {link.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6) 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .wordmark {
+    text-decoration: none;
+    color: var(--color-fg);
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .wordmark:hover {
+    color: var(--color-fg);
+  }
+
+  .brand {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-lg);
+    letter-spacing: -0.01em;
+  }
+
+  .byline {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--color-fg-muted);
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--color-fg);
+  }
+</style>

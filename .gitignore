@@ -20,8 +20,9 @@ yarn-error.log*
 # macOS
 .DS_Store
 
-# Editor
+# Editor / tooling
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
 .idea/
+.claude/

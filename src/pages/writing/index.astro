@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const isProd = import.meta.env.PROD;
+const posts = (await getCollection('writing', ({ data }) => !data.draft || !isProd))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const description = 'Long-form writing on agent identity, verifiable credentials, blockchain, and post-quantum cryptography.';
+
+const dateFmt = new Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<Base title="Writing" description={description}>
+  <h1>Writing</h1>
+
+  {
+    posts.length === 0 ? (
+      <p class="muted empty">First long-form pieces coming May 2026.</p>
+    ) : (
+      <ul class="posts">
+        {posts.map((post) => (
+          <li>
+            <a href={`/writing/${post.id}`}>
+              <span class="post-title">{post.data.title}</span>
+              <time class="post-date mono muted" datetime={post.data.pubDate.toISOString()}>
+                {dateFmt.format(post.data.pubDate)}
+              </time>
+            </a>
+            <p class="post-desc muted">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Base>
+
+<style>
+  .empty {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    margin-top: var(--space-8);
+  }
+
+  .posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .posts li {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-6) 0;
+    margin: 0;
+  }
+
+  .posts li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .posts a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .post-title {
+    font-family: var(--font-mono);
+    font-size: var(--fs-base);
+  }
+
+  .post-date {
+    font-size: var(--fs-xs);
+    white-space: nowrap;
+  }
+
+  .post-desc {
+    margin: var(--space-2) 0 0;
+    font-size: var(--fs-sm);
+  }
+</style>

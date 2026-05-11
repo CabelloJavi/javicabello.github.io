@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+
+const description = '{{COPY_CONTACT_META_DESCRIPTION}}';
+---
+
+<Base title="Contact" description={description}>
+  <h1>Contact</h1>
+
+  <section class="prose">
+    <p>{`{{COPY_CONTACT_LINE_1}}`}</p>
+    <p>{`{{COPY_CONTACT_LINE_2}}`}</p>
+    <p>{`{{COPY_CONTACT_LINE_3}}`}</p>
+    <p class="mail">
+      <a href="mailto:info@javicabello.dev">info@javicabello.dev</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .prose p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    max-width: var(--measure);
+  }
+
+  .mail {
+    margin-top: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: var(--fs-lg);
+  }
+</style>

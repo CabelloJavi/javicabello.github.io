@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+
+const description = '{{COPY_ABOUT_META_DESCRIPTION}}';
+---
+
+<Base title="About" description={description}>
+  <h1>About</h1>
+
+  <section class="prose">
+    <p>{`{{COPY_ABOUT_PARAGRAPH_1}}`}</p>
+    <p>{`{{COPY_ABOUT_PARAGRAPH_2}}`}</p>
+    <p>{`{{COPY_ABOUT_PARAGRAPH_3}}`}</p>
+  </section>
+</Base>
+
+<style>
+  .prose p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--space-6);
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import BeehiivEmbed from '../components/BeehiivEmbed.astro';
+
+const description = '{{COPY_HUMANOS_META_DESCRIPTION}}';
+
+const axes = [
+  {
+    id: 'ssi',
+    title: 'SSI / EUDIW / OpenID4VC',
+    body: '{{COPY_AXIS_SSI}}',
+  },
+  {
+    id: 'agent-identity',
+    title: 'Agent Identity',
+    body: '{{COPY_AXIS_AGENT_IDENTITY}}',
+  },
+  {
+    id: 'blockchain-identity',
+    title: 'Blockchain Identity (Ethereum + EVM)',
+    body: '{{COPY_AXIS_BLOCKCHAIN}}',
+  },
+  {
+    id: 'post-quantum',
+    title: 'Post-Quantum Cryptography',
+    body: '{{COPY_AXIS_PQC}}',
+  },
+  {
+    id: 'leadership',
+    title: 'Engineering Leadership in deep-tech regulated environments',
+    body: '{{COPY_AXIS_LEADERSHIP}}',
+  },
+];
+---
+
+<Base title="HumanOS" description={description}>
+  <h1>HumanOS</h1>
+
+  <p class="lede">{`{{COPY_HUMANOS_INTRO_SENTENCE}}`}</p>
+
+  <section class="axes" aria-label="Areas of focus">
+    <ul>
+      {
+        axes.map((axis) => (
+          <li id={axis.id}>
+            <h3 class="axis-title">{axis.title}</h3>
+            <p class="axis-body">{axis.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <BeehiivEmbed label="Follow HumanOS by email" />
+
+  <section class="next">
+    <p>
+      <a href="/writing">Read the long-form pieces →</a>
+    </p>
+    <p class="muted ingenieria">
+      <strong class="mono">IngenierIA</strong> — building agent teams for technical
+      discovery (in development).
+    </p>
+  </section>
+</Base>
+
+<style>
+  .lede {
+    font-size: var(--fs-lg);
+    color: var(--color-fg-muted);
+    max-width: var(--measure);
+    margin-bottom: var(--space-12);
+  }
+
+  .axes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .axes li {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-6) 0;
+    margin: 0;
+  }
+
+  .axes li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .axis-title {
+    margin: 0 0 var(--space-2);
+    font-size: var(--fs-base);
+  }
+
+  .axis-body {
+    margin: 0;
+    color: var(--color-fg-muted);
+    font-size: var(--fs-sm);
+  }
+
+  .next {
+    margin-top: var(--space-12);
+  }
+
+  .ingenieria {
+    font-size: var(--fs-sm);
+    margin-top: var(--space-6);
+  }
+</style>

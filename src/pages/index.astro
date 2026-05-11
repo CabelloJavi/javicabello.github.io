@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import BeehiivEmbed from '../components/BeehiivEmbed.astro';
+
+const description = '{{COPY_HOME_META_DESCRIPTION}}';
+---
+
+<Base title="Javi Cabello" description={description}>
+  <section class="hero">
+    <h1>{`{{COPY_HOME_HERO}}`}</h1>
+    <p class="lede">{`{{COPY_HOME_SUBHERO}}`}</p>
+  </section>
+
+  <BeehiivEmbed label="Subscribe to HumanOS" />
+
+  <section class="blocks">
+    <article>
+      <h2>{`{{COPY_HOME_BLOCK_1_TITLE}}`}</h2>
+      <p>{`{{COPY_HOME_BLOCK_1_BODY}}`}</p>
+    </article>
+
+    <article>
+      <h2>{`{{COPY_HOME_BLOCK_2_TITLE}}`}</h2>
+      <p>{`{{COPY_HOME_BLOCK_2_BODY}}`}</p>
+    </article>
+
+    <article>
+      <h2>{`{{COPY_HOME_BLOCK_3_TITLE}}`}</h2>
+      <p>{`{{COPY_HOME_BLOCK_3_BODY}}`}</p>
+    </article>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    margin-bottom: var(--space-12);
+  }
+
+  .hero h1 {
+    font-size: var(--fs-3xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .lede {
+    font-size: var(--fs-lg);
+    color: var(--color-fg-muted);
+    max-width: var(--measure);
+  }
+
+  .blocks article {
+    margin-top: var(--space-12);
+  }
+
+  .blocks h2 {
+    margin-top: 0;
+  }
+</style>

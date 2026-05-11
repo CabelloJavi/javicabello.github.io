@@ -14,9 +14,10 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishedTime?: string;
+  variant?: 'default' | 'landing';
 }
 
-const { title, description, image, type, publishedTime } = Astro.props;
+const { title, description, image, type, publishedTime, variant = 'default' } = Astro.props;
 
 const pageTitle =
   title === 'Javi Cabello' ? 'Javi Cabello' : `${title} — Javi Cabello`;
@@ -46,7 +47,7 @@ const PLAUSIBLE_DOMAIN = 'javicabello.dev';
       src="https://plausible.io/js/script.js"
     ></script>
   </head>
-  <body>
+  <body class={variant === 'landing' ? 'is-landing' : undefined}>
     <Header />
     <main>
       <slot />

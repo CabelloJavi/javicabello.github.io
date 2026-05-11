@@ -6,144 +6,154 @@ const description = '{{COPY_HOME_META_DESCRIPTION}}';
 const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
 ---
 
-<Base title="Javi Cabello" description={description}>
-  <section class="hero">
-    <p class="name-line first">Javi</p>
-    <p class="name-line second">Cabello</p>
-  </section>
+<Base title="Javi Cabello" description={description} variant="landing">
+  <section class="landing" itemscope itemtype="http://schema.org/Person">
+    <div class="name">
+      <span class="name__first" itemprop="givenName">JAVI</span>
+      <span class="name__last" itemprop="familyName">CABELLO</span>
+    </div>
 
-  <section class="bio">
-    <p>{`{{COPY_HOME_BIO_LINE_1}}`}</p>
-    <p>{`{{COPY_HOME_BIO_LINE_2}}`}</p>
+    <ul class="brands" aria-label="Channels">
+      <li class="brand">
+        <a
+          href="https://github.com/CabelloJavi"
+          rel="me noopener"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <svg viewBox="0 0 16 16" class="brand__icon" aria-hidden="true">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/>
+          </svg>
+        </a>
+      </li>
+      <li class="brand">
+        <a
+          href="https://www.linkedin.com/in/javier-cabello-laguna"
+          rel="me noopener"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <svg viewBox="0 0 16 16" class="brand__icon" aria-hidden="true">
+            <path fill="currentColor" fill-rule="nonzero" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z"/>
+          </svg>
+        </a>
+      </li>
+      <li class="brand brand--wordmark">
+        <a href={HUMANOS_URL} rel="noopener" target="_blank" aria-label="Human/OS — newsletter">
+          <span class="brand__wordmark">Human/OS</span>
+        </a>
+      </li>
+    </ul>
   </section>
-
-  <section class="humanos" aria-label="Human/OS newsletter">
-    <a class="humanos__link" href={HUMANOS_URL} rel="noopener" target="_blank">
-      <span class="humanos__brand mono">Human/OS</span>
-      <span class="humanos__pitch">{`{{COPY_HOME_HUMANOS_PITCH}}`}</span>
-      <span class="humanos__cta mono" aria-hidden="true">Read &rarr;</span>
-    </a>
-  </section>
-
-  <ul class="social" aria-label="Social links">
-    <li>
-      <a href="https://github.com/CabelloJavi" rel="me noopener" target="_blank" aria-label="GitHub">
-        <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
-          <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/javier-cabello-laguna" rel="me noopener" target="_blank" aria-label="LinkedIn">
-        <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
-          <path fill="currentColor" fill-rule="nonzero" d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z"/>
-        </svg>
-      </a>
-    </li>
-  </ul>
 </Base>
 
 <style>
-  .hero {
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-12);
-  }
-
-  .name-line {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: clamp(3.5rem, 14vw, 7rem);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    margin: 0;
-    max-width: none;
-  }
-
-  .name-line.second {
-    color: var(--color-fg-muted);
-  }
-
-  .bio {
-    margin-bottom: var(--space-16);
-  }
-
-  .bio p {
-    font-size: var(--fs-lg);
-    color: var(--color-fg);
-    line-height: var(--lh-relaxed);
-    margin-bottom: var(--space-3);
-  }
-
-  .humanos {
-    margin-bottom: var(--space-16);
-  }
-
-  .humanos__link {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+  .landing {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-6);
-    padding: var(--space-6);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    background: var(--color-bg-elevated);
-    text-decoration: none;
+    justify-content: center;
+    gap: var(--space-16);
+    min-height: calc(100vh - 16rem);
+    padding: 0 var(--space-4);
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  .name__first,
+  .name__last {
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 9vw, 5.5rem);
+  }
+
+  .name__first {
+    font-weight: 700;
+  }
+
+  .name__last {
+    font-weight: 300;
     color: var(--color-fg);
-    transition: border-color 120ms ease, transform 120ms ease;
   }
 
-  .humanos__link:hover {
-    border-color: var(--color-accent);
-    color: var(--color-fg);
-  }
-
-  .humanos__brand {
-    font-size: var(--fs-xl);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .humanos__pitch {
-    color: var(--color-fg-muted);
-    font-size: var(--fs-sm);
-  }
-
-  .humanos__cta {
-    color: var(--color-fg-muted);
-    font-size: var(--fs-sm);
-    white-space: nowrap;
-  }
-
-  .humanos__link:hover .humanos__cta {
-    color: var(--color-accent);
-  }
-
-  @media (max-width: 600px) {
-    .humanos__link {
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
-    }
-  }
-
-  .social {
+  .brands {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: var(--space-6);
+    align-items: center;
+    gap: var(--space-8);
   }
 
-  .social li {
+  .brand {
     margin: 0;
   }
 
-  .social a {
-    color: var(--color-fg-muted);
-    display: inline-flex;
+  .brand a {
+    color: var(--color-fg);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 120ms ease, transform 120ms ease;
   }
 
-  .social a:hover {
-    color: var(--color-fg);
+  .brand a:hover {
+    color: var(--color-accent);
+  }
+
+  .brand__icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    display: block;
+  }
+
+  .brand--wordmark a {
+    height: 3.25rem;
+    padding: 0 var(--space-2);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .brand__wordmark {
+    font-family: var(--font-mono);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 720px) {
+    .landing {
+      flex-direction: column;
+      gap: var(--space-12);
+      min-height: calc(100vh - 14rem);
+    }
+
+    .name {
+      align-items: center;
+      text-align: center;
+    }
+
+    .brands {
+      gap: var(--space-6);
+    }
+
+    .brand__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .brand--wordmark a {
+      height: 2.5rem;
+    }
+
+    .brand__wordmark {
+      font-size: 1.35rem;
+    }
   }
 </style>

@@ -5,13 +5,11 @@ const internalLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
-
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="site-header">
-  <a href="/" class="wordmark" aria-label="Javi Cabello — Home">
+  <a href="/" class="wordmark" aria-label="Javi Cabello — Home" data-hide-on-landing>
     <span class="wordmark__name mono">Javi Cabello</span>
   </a>
 
@@ -30,11 +28,6 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           );
         })
       }
-      <li class="external">
-        <a href={HUMANOS_URL} rel="noopener" target="_blank">
-          Human/OS <span aria-hidden="true">&#8599;</span>
-        </a>
-      </li>
     </ul>
   </nav>
 </header>
@@ -50,6 +43,15 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     align-items: baseline;
     justify-content: space-between;
     gap: var(--space-4);
+  }
+
+  :global(body.is-landing) .site-header {
+    max-width: none;
+    justify-content: flex-end;
+  }
+
+  :global(body.is-landing) [data-hide-on-landing] {
+    display: none;
   }
 
   .wordmark {
@@ -92,17 +94,4 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     color: var(--color-fg);
   }
 
-  .external {
-    padding-left: var(--space-4);
-    margin-left: var(--space-2);
-    border-left: 1px solid var(--color-border);
-  }
-
-  .external a {
-    color: var(--color-fg);
-  }
-
-  .external a:hover {
-    color: var(--color-accent);
-  }
 </style>

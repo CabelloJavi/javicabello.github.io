@@ -1,0 +1,107 @@
+---
+const internalLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <a href="/" class="wordmark" aria-label="Javi Cabello — Home" data-hide-on-landing>
+    <span class="wordmark__first mono">Javi</span>
+    <span class="wordmark__last mono">Cabello</span>
+  </a>
+
+  <nav aria-label="Primary">
+    <ul>
+      {
+        internalLinks.map((link) => {
+          const target = link.href.replace(/\/$/, '') || '/';
+          const isActive = target === path;
+          return (
+            <li>
+              <a href={link.href} aria-current={isActive ? 'page' : undefined}>
+                {link.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6) 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  :global(body.is-landing) .site-header {
+    max-width: none;
+    justify-content: flex-end;
+  }
+
+  :global(body.is-landing) [data-hide-on-landing] {
+    display: none;
+  }
+
+  .wordmark {
+    text-decoration: none;
+    color: var(--color-fg);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45ch;
+    font-size: var(--fs-lg);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  .wordmark:hover {
+    color: var(--color-fg);
+  }
+
+  .wordmark__first {
+    font-weight: 800;
+  }
+
+  .wordmark__last {
+    font-weight: 300;
+    color: var(--color-fg-muted);
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--color-fg);
+  }
+
+</style>

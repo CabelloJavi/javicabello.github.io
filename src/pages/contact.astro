@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+
+const description = 'Get in touch with Javi Cabello by email.';
+---
+
+<Base title="Contact" description={description}>
+  <h1>Contact</h1>
+
+  <section class="prose">
+    <p>Best reached by email.</p>
+    <p>
+      If you're working on something at the intersection of identity, agents,
+      or verifiable systems, I'd like to hear about it.
+    </p>
+    <p>Most replies arrive within a few days.</p>
+    <p class="mail">
+      <a href="mailto:info@javicabello.dev">info@javicabello.dev</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .prose p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    max-width: var(--measure);
+  }
+
+  .mail {
+    margin-top: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: var(--fs-lg);
+  }
+</style>

@@ -10,7 +10,8 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 <header class="site-header">
   <a href="/" class="wordmark" aria-label="Javi Cabello — Home" data-hide-on-landing>
-    <span class="wordmark__name mono">Javi Cabello</span>
+    <span class="wordmark__first mono">Javi</span>
+    <span class="wordmark__last mono">Cabello</span>
   </a>
 
   <nav aria-label="Primary">
@@ -57,16 +58,25 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .wordmark {
     text-decoration: none;
     color: var(--color-fg);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45ch;
+    font-size: var(--fs-lg);
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
 
   .wordmark:hover {
     color: var(--color-fg);
   }
 
-  .wordmark__name {
-    font-weight: 600;
-    font-size: var(--fs-base);
-    letter-spacing: -0.01em;
+  .wordmark__first {
+    font-weight: 800;
+  }
+
+  .wordmark__last {
+    font-weight: 300;
+    color: var(--color-fg-muted);
   }
 
   nav ul {

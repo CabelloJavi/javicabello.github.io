@@ -19,7 +19,7 @@ interface Props {
 const { title, description, image, type, publishedTime } = Astro.props;
 
 const pageTitle =
-  title === 'Javi Cabello' ? 'Javi Cabello — HumanOS' : `${title} — Javi Cabello`;
+  title === 'Javi Cabello' ? 'Javi Cabello' : `${title} — Javi Cabello`;
 
 const PLAUSIBLE_DOMAIN = 'javicabello.dev';
 ---
@@ -31,7 +31,6 @@ const PLAUSIBLE_DOMAIN = 'javicabello.dev';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Javi Cabello" href="/rss.xml" />
     <title>{pageTitle}</title>
     <Seo
       title={pageTitle}

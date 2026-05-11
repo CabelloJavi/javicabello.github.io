@@ -1,24 +1,24 @@
 ---
-const links = [
+const internalLinks = [
   { href: '/', label: 'Home' },
-  { href: '/writing', label: 'Writing' },
-  { href: '/humanos', label: 'HumanOS' },
-  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="site-header">
   <a href="/" class="wordmark" aria-label="Javi Cabello — Home">
-    <span class="brand">HumanOS</span>
-    <span class="byline">by Javi Cabello</span>
+    <span class="wordmark__name mono">Javi Cabello</span>
   </a>
+
   <nav aria-label="Primary">
     <ul>
       {
-        links.map((link) => {
+        internalLinks.map((link) => {
           const target = link.href.replace(/\/$/, '') || '/';
           const isActive = target === path;
           return (
@@ -30,6 +30,11 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           );
         })
       }
+      <li class="external">
+        <a href={HUMANOS_URL} rel="noopener" target="_blank">
+          Human/OS <span aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -50,26 +55,16 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   .wordmark {
     text-decoration: none;
     color: var(--color-fg);
-    display: inline-flex;
-    align-items: baseline;
-    gap: var(--space-3);
   }
 
   .wordmark:hover {
     color: var(--color-fg);
   }
 
-  .brand {
-    font-family: var(--font-mono);
+  .wordmark__name {
     font-weight: 600;
-    font-size: var(--fs-lg);
+    font-size: var(--fs-base);
     letter-spacing: -0.01em;
-  }
-
-  .byline {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    color: var(--color-fg-muted);
   }
 
   nav ul {
@@ -95,5 +90,19 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   nav a:hover,
   nav a[aria-current='page'] {
     color: var(--color-fg);
+  }
+
+  .external {
+    padding-left: var(--space-4);
+    margin-left: var(--space-2);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .external a {
+    color: var(--color-fg);
+  }
+
+  .external a:hover {
+    color: var(--color-accent);
   }
 </style>

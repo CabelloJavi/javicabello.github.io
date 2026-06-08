@@ -2,34 +2,417 @@
 import Base from '../layouts/Base.astro';
 
 const description =
-  'Engineering leadership, technical advisory, and hands-on work on identity, agents, and verifiable systems.';
+  'Engineering leadership and technical advisory for founders, CTOs, and investors. Architecture review, technical due diligence, and fractional CTO engagements — at the intersection of digital identity, AI agents, and verifiable systems.';
+
+const mailto = (subject: string) =>
+  `mailto:info@javicabello.dev?subject=${encodeURIComponent(subject)}`;
 ---
 
 <Base title="Services" description={description}>
-  <h1>Services</h1>
+  <article>
+    <header class="page-header">
+      <h1>Services</h1>
+    </header>
 
-  <section class="prose">
-    <p class="lede">
-      Engineering leadership and technical advisory for teams building identity,
-      agent systems, and verifiable infrastructure.
-    </p>
+    <section class="hero" aria-labelledby="hero-title">
+      <p id="hero-title" class="hero-statement">
+        Engineering leadership and technical advisory.
+      </p>
 
-    <p class="muted soon mono">Coming soon.</p>
-  </section>
+      <p>
+        I work with founders, CTOs, and investors on the technical decisions
+        that don't have obvious answers. Architecture choices that lock you in.
+        Engineering direction in teams building something new. Due diligence on
+        systems that mix unfamiliar stacks with regulated environments.
+      </p>
+
+      <p>
+        At the core of my work sits engineering leadership: building and
+        directing teams in deep-tech regulated environments, defining technical
+        scope before code is written, and architecting systems at scale —
+        including data engineering with BigQuery and hot/cold path analytics.
+        Where I go deepest, technically, is at the intersection of digital
+        identity, AI agents, and verifiable systems: SSI/EUDIW, OpenID4VC,
+        agent identity, and blockchain (Substrate, Ethereum).
+      </p>
+
+      <p class="hero-bridge">These engagements take three forms.</p>
+    </section>
+
+    <section class="engagements" aria-labelledby="engagements-title">
+      <h2 id="engagements-title">Services</h2>
+
+      <div class="engagement">
+        <h3>Architecture review</h3>
+        <p>
+          For teams about to make architectural decisions that need depth before
+          being made. Typical cases: SSI/EUDIW readiness, AI Act compliance for
+          agentic systems, post-quantum migration planning, hot/cold path
+          analytics architecture, and platform decisions in deep-tech regulated
+          environments more broadly.
+        </p>
+        <p>
+          Self-contained engagement, two to three weeks, closed scope. The
+          output is a review document with prioritized findings, recommended
+          decisions, identified risks, and concrete next steps, followed by a
+          closing session with the team.
+        </p>
+        <p class="cta">
+          <a href={mailto('Architecture review — discuss')}>
+            <span aria-hidden="true">→ </span>Discuss a review
+          </a>
+        </p>
+      </div>
+
+      <div class="engagement">
+        <h3>Technical Due Diligence</h3>
+        <p>
+          For funds evaluating investments in complex deep-tech. Particularly
+          useful where the target operates at intersections that mix unfamiliar
+          stacks with regulated environments — though the format works for any
+          DD where independent technical judgment is what's missing.
+        </p>
+        <p>
+          One-shot, closed scope, confidential. The output is an independent
+          technical report covering architecture, team, stack, risks,
+          competitive positioning, and red flags, followed by a closing
+          conversation with the fund's team.
+        </p>
+        <p class="cta">
+          <a href={mailto('Technical Due Diligence — discuss')}>
+            <span aria-hidden="true">→ </span>Discuss a DD engagement
+          </a>
+        </p>
+      </div>
+
+      <div class="engagement">
+        <h3>Fractional CTO / Technical Direction</h3>
+        <p>
+          For startups building product that need sustained senior technical
+          direction. The natural fit is deep-tech regulated work where technical
+          depth isn't optional, but the format works wherever the technical
+          direction itself is what's missing.
+        </p>
+        <p>
+          Monthly retainer, intentionally limited engagements. Continuous
+          involvement on architecture, technical roadmap, hiring decisions,
+          regulator-facing work where it applies, and the critical conversation
+          about what to build and what not to build.
+        </p>
+        <p class="cta">
+          <a href={mailto('Fractional CTO — discuss')}>
+            <span aria-hidden="true">→ </span>Discuss a fractional engagement
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="work-title">
+      <h2 id="work-title">Selected work</h2>
+
+      <article class="project">
+        <h3>
+          Neoke <span class="project__meta">— Tech Lead · digital identity for travel</span>
+        </h3>
+        <p>
+          Neoke was a startup building digital identity infrastructure to
+          streamline check-in and onboarding across hotels, airports, and
+          airlines. The premise: let the traveler's phone carry verified
+          identity, and release it only under explicit per-use consent — turning
+          a chain of manual checks into something that happens quietly in the
+          background.
+        </p>
+        <p>
+          I joined at the start as Tech Lead and led the technical work through
+          the design of the initial solution and several architectural
+          iterations. The interesting part was the timing: we were building
+          production digital identity flows before the open-source ecosystem
+          around them had matured. A meaningful part of the work was deciding
+          where to wait for the field and where to build in-house, then doing
+          the in-house piece well enough that we could integrate cleanly with
+          external providers when they arrived.
+        </p>
+        <p>
+          Most of the technical and commercial detail sits under
+          confidentiality. What's visible from outside: the system reached
+          production, integrated with major providers in the airline industry,
+          and the architecture proved durable enough to absorb multiple
+          iterations as the underlying standards matured.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>
+          Abako (Kunveno)
+          <span class="project__meta">
+            — Project Lead · decentralized Web3 platform · in progress
+          </span>
+        </h3>
+        <p>
+          Abako is a research project building a fully decentralized platform —
+          Web3 from the ground up — to connect developers with clients who need
+          projects executed. I lead the project, coordinating a team across
+          backend, frontend, and design.
+        </p>
+        <p>
+          My work centers on two things: defining the work blocks and technical
+          scope the team executes against, and advising on what advanced
+          blockchain can and can't do well here — which flows are viable
+          on-chain, and which are technically possible but a bad idea to put
+          there. That second part matters more than it sounds. A lot of Web3
+          projects fail by forcing logic on-chain that has no business being
+          there, and a meaningful part of leading this one is drawing that line
+          clearly.
+        </p>
+        <p>
+          The platform runs on Polkadot, with an Express backend and a React
+          webapp. The piece I find most interesting is a decentralized user
+          identification scheme built on passkeys that lives on-chain — cutting
+          login friction while keeping identity decentralized. Together with
+          the team, I designed the smart contract architecture that carries the
+          business logic. The project is still in development, but its proof of
+          concept earned a grant from the Web3 Foundation — external validation
+          that the core idea holds up.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>
+          The work between projects
+          <span class="project__meta">
+            — engineering leadership, teaching, and a way of building
+          </span>
+        </h3>
+        <p>
+          Beyond the named projects, a meaningful part of my work over the past
+          years has been leading and shaping engineering teams across contexts.
+          I started leading teams at GeoDB, where I ran the blockchain and big
+          data area and their integration. Team sizes have typically sat
+          between five and ten people, and the technical ground cuts across
+          data, backend, API design, cloud infrastructure, QA, and distributed
+          systems — enough cumulative depth that the stack itself is rarely the
+          bottleneck when leading these teams.
+        </p>
+        <p>
+          What I've come to care about in leading teams is communication of
+          quality, not communication of volume. There's a default mode in most
+          engineering organizations where everyone talks constantly and very
+          little actually gets decided. I work the opposite way: filter noise
+          actively, keep the channels few but high-signal, and protect the
+          team's focus as a non-negotiable. The conversations that matter
+          happen often enough; the rest stops getting on people's calendars.
+        </p>
+        <p>
+          The way I approach scope is related. I spend more time than most on
+          requirements before code is written — not in a waterfall sense, but
+          because the shortest path to a system that holds up is to understand
+          the whole before sharpening any single piece. From there I default to
+          the smallest possible end-to-end version, all functional blocks
+          connected, before deepening any of them. The shape of the whole
+          reveals what each part actually needs to do, and the parts are easier
+          to build well once the whole exists in skeleton.
+        </p>
+        <p>
+          I've also taught what I do. Three editions of the Blockchain Master
+          at Nuclio School, covering material from theoretical foundations
+          through hands-on implementation, with students who were active
+          developers and project managers — not beginners reading textbooks.
+          I've also given a masterclass on blockchain at UNIA's summer school.
+          Teaching practitioners forces a particular kind of clarity, and a
+          real part of why I keep doing it is that it sharpens the work I do
+          everywhere else.
+        </p>
+      </article>
+    </section>
+
+    <section class="building" aria-labelledby="building-title">
+      <h2 id="building-title">Currently building</h2>
+
+      <article class="project">
+        <h3>
+          AgentID <span class="project__meta">— identity for AI agents</span>
+        </h3>
+        <p>
+          I'm building AgentID, an identity layer for AI agents. DIDs,
+          verifiable credentials, SD-JWT, Substrate/Ink!, A2A and MCP at the
+          protocol layer. The target environments: fintechs, legaltechs, DAOs,
+          and enterprises operating under EU AI Act requirements — places where
+          deploying agents without identifiable, auditable accountability isn't
+          viable.
+        </p>
+        <p>Built in public. Open to design partners.</p>
+        <p class="cta">
+          <a href={mailto('AgentID — design partner inquiry')}>
+            <span aria-hidden="true">→ </span>Get in touch about AgentID
+          </a>
+        </p>
+      </article>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title">How I work</h2>
+      <p>
+        I work remotely, in English and Spanish, based in Spain. Engagements
+        are intentionally limited — I take fewer of them than I could in order
+        to do them well.
+      </p>
+      <p>
+        The kind of work that fits: complex technical problems, small to
+        mid-sized teams where senior judgment actually decides, and founders or
+        investors who value depth over velocity and discussion over executive
+        order.
+      </p>
+      <p>
+        The kind that doesn't fit: roles where the brief is to write code
+        operationally, organizations where technical direction must pass
+        through six committees before being acted on, or problems where what's
+        actually being sought is validation of a decision already made.
+      </p>
+    </section>
+
+    <section class="beyond" aria-labelledby="beyond-title">
+      <h2 id="beyond-title">Beyond engagements</h2>
+      <p>
+        I also publish self-contained material on these topics — including a
+        working guide on SSI/OpenID4VC implementation and other resources in
+        preparation.
+      </p>
+      <p class="cta cta--muted">
+        <a href="/products">
+          <span aria-hidden="true">→ </span>/products
+          <span class="cta__note mono"> (in preparation)</span>
+        </a>
+      </p>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Get in touch</h2>
+      <p>
+        The shortest way to start a conversation is an email with three things:
+        context (what your team is building or evaluating), the specific
+        problem or decision you're facing, and where the work is right now.
+        From there, I come back with whether and how I can help.
+      </p>
+      <p class="cta cta--primary">
+        <a href="mailto:info@javicabello.dev">
+          <span aria-hidden="true">→ </span>info@javicabello.dev
+        </a>
+      </p>
+      <p class="muted note">
+        No discovery calls on the calendar yet — every first contact starts as
+        written, and we move to a call when there's something concrete to talk
+        about.
+      </p>
+    </section>
+  </article>
 </Base>
 
 <style>
-  .prose {
+  article {
     max-width: var(--measure);
   }
 
-  .lede {
-    font-size: var(--fs-lg);
-    color: var(--color-fg-muted);
+  .page-header {
     margin-bottom: var(--space-12);
   }
 
-  .soon {
+  section {
+    margin-top: var(--space-16);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  section:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  h2 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-8);
+  }
+
+  h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-4);
+    margin-top: 0;
+  }
+
+  p {
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-statement {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: var(--fs-xl);
+    line-height: var(--lh-tight);
+    letter-spacing: -0.01em;
+    color: var(--color-fg);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-bridge {
+    font-family: var(--font-mono);
     font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+    margin-top: var(--space-6);
+  }
+
+  .engagement,
+  .project {
+    margin-top: var(--space-12);
+  }
+
+  .engagement:first-of-type,
+  .project:first-of-type {
+    margin-top: 0;
+  }
+
+  .project__meta {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+    display: inline-block;
+  }
+
+  .cta {
+    margin-top: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+  }
+
+  .cta a {
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2px;
+    transition: border-color 120ms ease, color 120ms ease;
+  }
+
+  .cta a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .cta--primary {
+    font-size: var(--fs-base);
+  }
+
+  .cta--muted a {
+    color: var(--color-fg-muted);
+  }
+
+  .cta__note {
+    color: var(--color-fg-subtle);
+    font-size: var(--fs-xs);
+  }
+
+  .note {
+    font-size: var(--fs-sm);
+    margin-top: var(--space-6);
   }
 </style>

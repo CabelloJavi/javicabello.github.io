@@ -5,6 +5,7 @@ const description =
   'Javi Cabello — engineering and leading at the intersection of agent identity, verifiable credentials, blockchain, and post-quantum cryptography.';
 
 const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
+const AGENTID_URL = 'https://agentid.javicabello.dev';
 ---
 
 <Base title="Javi Cabello" description={description} variant="landing">
@@ -42,6 +43,15 @@ const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
       <li class="brand brand--wordmark">
         <a href={HUMANOS_URL} rel="noopener" target="_blank" aria-label="Human/OS — newsletter">
           <span class="brand__wordmark">Human/OS</span>
+        </a>
+      </li>
+      <li class="brand brand--wordmark">
+        <a href={AGENTID_URL} rel="noopener" target="_blank" aria-label="AgentID — identity for AI agents">
+          <svg viewBox="0 0 24 24" class="brand__shield" aria-hidden="true">
+            <path fill="#6d3af5" d="M12 1.8 3.6 4.9v6.3c0 5.3 3.6 10.2 8.4 11.4 4.8-1.2 8.4-6.1 8.4-11.4V4.9L12 1.8z"/>
+            <path fill="#fff" d="m10.9 15.2-3-3 1.4-1.4 1.6 1.6 4-4 1.4 1.4-5.4 5.4z"/>
+          </svg>
+          <span class="brand__wordmark">Agent<b>ID</b></span>
         </a>
       </li>
     </ul>
@@ -128,6 +138,17 @@ const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
     white-space: nowrap;
   }
 
+  .brand__wordmark b {
+    font-weight: 800;
+  }
+
+  .brand__shield {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: block;
+    margin-right: 0.4rem;
+  }
+
   @media (max-width: 720px) {
     .landing {
       flex-direction: column;
@@ -155,6 +176,11 @@ const HUMANOS_URL = 'https://humanos-frame.beehiiv.com/';
 
     .brand__wordmark {
       font-size: 1.35rem;
+    }
+
+    .brand__shield {
+      width: 1.7rem;
+      height: 1.7rem;
     }
   }
 </style>
